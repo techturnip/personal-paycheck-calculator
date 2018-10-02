@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="styles/vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="container bg-dark text-white">
+  <header id="heading">
+    <h1 class="text-center my-4">Paycheck Calculator</h1>
+  </header>
+
+  <section class="mt-4">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <form id="calculator">
+
+          <!-- WEEKLY OR BIWEEKLY -->
+          <h5 class="mt-2">Do you get paid weekly or biweekly?</h5>
+          <div class="form-check form-check-inline">
+            <input type="radio" name="weekRadios" id="weekly" value="option1" class="form-check-input">
+            <label for="weekly" class="form-check-label">Weekly</label>
+          </div>
+          <!-- .form-check > #weekly -->
+
+          <div class="form-check form-check-inline">
+            <input type="radio" name="weekRadios" id="biweekly" value="option2" class="form-check-input" checked>
+            <label for="biweekly" class="form-check-label">Bi-Weekly</label>
+          </div>
+          <!-- .form-check > #biweekly -->
+
+          <div class="form-group mt-2">
+            <label for="hourly-rate">Insert your hourly rate.</label>
+            <input type="number" id="hourly-rate" class="form-control" placeholder="Hourly Rate">
+          </div><!-- .form-group > #hourly-rate -->
+
+          <div class="form-group">
+            <label for="hours">Insert your hours.</label>
+            <input type="number" id="hours" class="form-control" placeholder="Hours">
+          </div><!-- .form-group > #hours -->
+
+          <!-- MILEAGE -->
+          <!-- <h5 class="mt-2">Do you collect mileage compensation?</h5>
+          <div class="form-check form-check-inline">
+            <input type="radio" name="mileageRadios" id="mileage-yes" value="option1" class="form-check-input">
+            <label for="mileage-yes" class="form-check-label">Yes</label>
+          </div> -->
+          <!-- .form-check > #mileage-yes -->
+
+          <!-- <div class="form-check form-check-inline">
+            <input type="radio" name="mileageRadios" id="mileage-no" value="option2" class="form-check-input" checked>
+            <label for="mileage-no" class="form-check-label">No</label>
+          </div> -->
+          <!-- .form-check > #mileage-no -->
+
+          <!-- show inputs if yes -->
+          <!-- <div id="mileage-inputs" class="d-none">
+            <div class="form-group mt-2">
+              <label for="mileage-rate">Insert your mileage rate.</label>
+              <input type="number" id="mileage-rate" class="form-control" placeholder="Mileage Rate">
+            </div> -->
+          <!-- .form-group > #mileage-rate -->
+          <!-- <div class="form-group">
+              <label for="mileage">Insert your mileage.</label>
+              <input type="number" id="mileage" class="form-control" placeholder="Mileage">
+            </div> -->
+          <!-- .form-group > #mileage -->
+          <!-- </div> -->
+          <!-- #mileage-inputs -->
+
+          <!-- PHONE COMPENSATION -->
+          <!-- <h5 class="mt-2">Do you collect phone compensation?</h5>
+          <div class="form-check form-check-inline">
+            <input type="radio" name="phoneRadios" id="phone-yes" value="option1" class="form-check-input">
+            <label for="phone-yes" class="form-check-label">Yes</label>
+          </div> -->
+          <!-- .fom-check > #phone-yes -->
+
+          <!-- <div class="form-check form-check-inline">
+            <input type="radio" name="phoneRadios" id="phone-no" value="option2" class="form-check-input" checked>
+            <label for="phone-no" class="form-check-label">No</label>
+          </div> -->
+          <!-- .form-check > #phone-no -->
+
+          <!-- Show input if yes -->
+          <!-- <div id="phone-input" class="form-group mt-2 d-none">
+            <label for="phone">Insert your phone compensation.</label>
+            <input type="number" id="phone" class="form-control" placeholder="Phone Compensation">
+          </div> -->
+          <!-- #phone-input > #phone -->
+
+          <!-- TAX PERCENTAGE -->
+          <!-- <h5 class="mt-2">Would you like to include your total approximate tax percentage?</h5>
+          <div class="form-check form-check-inline">
+            <input type="radio" name="taxRadios" id="tax-yes" value="option1" class="form-check-input">
+            <label for="tax-yes" class="form-check-label">Yes</label>
+          </div> -->
+          <!-- .form-check > #tax-yes -->
+
+          <!-- <div class="form-check form-check-inline">
+            <input type="radio" name="taxRadios" id="tax-no" value="option2" class="form-check-input" checked>
+            <label for="tax-no" class="form-check-label">No</label>
+          </div> -->
+          <!-- .form-check > #tax-no -->
+
+          <!-- show input if yes -->
+          <!-- <div id="tax-input" class="form-group mt-2 d-none">
+            <label for="tax">Insert your tax percentage.</label>
+            <input type="number" id="tax" class="form-control" placeholder="Tax Percentage">
+          </div> -->
+          <!-- #tax-input > #tax -->
+
+          <!-- SUBMIT -->
+          <button type="submit" id="btn-submit" class="btn btn-success btn-block mt-2">Submit</button>
+
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="results" class="mt-4">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <form>
+          <div id="total-pay-wrapper">
+            <h5>Your regular pay and overtime pay:</h5>
+            <div class="form-group">
+              <input type="number" id="total-pay" class="form-control" disabled>
+            </div>
+          </div>
+          <div id="pay-wrapper">
+            <h5>Your regular pay:</h5>
+            <div class="form-group">
+              <input type="number" id="pay" class="form-control" disabled>
+            </div>
+          </div>
+          <!-- <div id="mileage-pay-wrapper">
+            <h5>Your mileage pay:</h5>
+            <div class="form-group">
+              <input type="number" id="mileage-pay" class="form-control">
+            </div>
+          </div>
+          <div id="phone-pay-wrapper">
+            <h5>Your phone pay:</h5>
+            <div class="form-group">
+              <input type="number" id="phone-pay" class="form-control">
+            </div>
+          </div>
+          <div id="taxes-wrapper">
+            <h5>Your taxes:</h5>
+            <div class="form-group">
+              <input type="number" id="taxes" class="form-control">
+            </div>
+          </div> -->
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- JS -->
+  <script src="js/vendor/jquery/jquery-3.3.1.min.js"></script>
+  <script src="js/vendor/bootstrap/bootstrap.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
